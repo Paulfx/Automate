@@ -1,0 +1,46 @@
+Rendu du projet LIIFLC 2017-2018
+================================
+
+LAFOIX   Paul   #p1611978
+
+
+Contenu de l'archive
+--------------------
+
+LISEZMOI.txt      ce fichier
+Makefile          cibles 
+                    all (par défaut) : exécutable principal
+                    parser : flex et bison pour le parser d'expression rationnelles
+                    clean et cleanparser : pour le nettoyage
+exemples/         exemples d'automates :
+                    D = Déterministe,
+                    ND = Non Déterministe,
+                    NDE = Non Déterministe avec transitions spontanées
+src/              fichiers sources C++
+
+
+Documentation de référence
+--------------------------
+
+http://www.cplusplus.com/reference/
+
+
+Commentaires
+------------
+
+Modification du code existant : 
+
+
+	I)	--->   Fichier FA_main.cpp
+		--->   Ligne   95
+		--->   remplacement de "expr" par "in1"
+
+	II) --->   Fichier FA_main.cpp
+		--->   Ligne   49
+		--->   Ligne commentée car non utilisation de 'er'
+
+Ajout de fonctions :
+
+	I)	---> Fichier Determinize
+		---> Les fonctions findIndex et isFinal ne sont utiles que dans Determinize.cpp
+			 Mais ont été mises dans le fichier header pour plus de lisibilité. 
