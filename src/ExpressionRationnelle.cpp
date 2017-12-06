@@ -67,6 +67,7 @@ std::string expression_rationnelle2string(sExpressionRationnelle r) {
   case o_etoile:
     return expression_rationnelle2string(r->arg) + "*";
   case o_concat:
+    return expression_rationnelle2string(r->arg1) + "." + expression_rationnelle2string(r->arg2);
   case o_ou:
     return "(" + expression_rationnelle2string(r->arg1)
       + " " + operateur2string(r->op) + " "

@@ -100,7 +100,7 @@ std::string Automate2ExpressionRationnelle2(sAutoNDE at){
       if(itIK != mapR.end()) {//On a trouvé un état possédant une flèche vers k
         for(unsigned int etatArrive=1; etatArrive < atArr.nb_etats; ++etatArrive) {
           std::cout<<"------"<<etatArrive<<std::endl;
-          if(etatArrive == k) continue;
+          if(etatArrive == k || etatArrive == etatDepart) continue;
           auto itKJ = mapR.find(std::make_tuple(k,etatArrive));
           if(itKJ != mapR.end()) { //On a trouvé un état k avec une flèche de i vers k ET une flèche de k à j
             auto itKK = mapR.find(std::make_tuple(k,k));
