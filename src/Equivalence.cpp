@@ -7,6 +7,8 @@
 
 #include "Equivalence.h"
 
+#include "Determinize.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 sAutoNDE Arrange(const sAutoNDE& at){
   sAutoNDE r;
@@ -73,6 +75,8 @@ sExpressionRationnelle InitExpressionRationnelle(const sAutoNDE& at, unsigned in
 
 std::string Automate2ExpressionRationnelle2(sAutoNDE at){
 
+  //at = Determinize(at);  
+
   sAutoNDE atArr=Arrange(at);
 
   std::map<std::tuple<unsigned int,unsigned int>,sExpressionRationnelle> mapR;
@@ -100,7 +104,8 @@ std::string Automate2ExpressionRationnelle2(sAutoNDE at){
       if(itIK != mapR.end()) {//On a trouvé un état possédant une flèche vers k
         for(unsigned int etatArrive=1; etatArrive < atArr.nb_etats; ++etatArrive) {
           std::cout<<"------"<<etatArrive<<std::endl;
-          if(etatArrive == k || etatArrive == etatDepart) continue;
+          //|| etatArrive == etatDepart
+          if(etatArrive == k ) continue;
           auto itKJ = mapR.find(std::make_tuple(k,etatArrive));
           if(itKJ != mapR.end()) { //On a trouvé un état k avec une flèche de i vers k ET une flèche de k à j
             auto itKK = mapR.find(std::make_tuple(k,k));
